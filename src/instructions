@@ -1,0 +1,49 @@
+Time limit: 30 minutes
+
+This simple React app is paired to a pokemon graphql 
+API:
+https://graphql-pokemon.now.sh/graphql
+
+It is querying pokemons and logging them in the console.
+
+Instructions:
+1. Display each pokemon as card. One card per row is fine.
+In each card, display the pokemon's:
+  - Name
+  - Number
+  - Image
+
+Styling is not critical but the cards should be easily
+readable.
+
+2. Sort pokemon alphabetically by name
+
+3. Add a button to each card called "sort". When
+pressed, the display should be shifted so that the selected
+pokemon is now first in order. All elements should remain
+in alphabetical order. For example:
+
+A -> B -> C -> D -> E
+
+if "C" is selected, the display will become:
+
+C -> D -> E -> A -> B
+
+Always be sure that whichever pokemon is selected will
+be the first in order displayed, no matter how many 
+times the list shifts.
+
+BONUS (10 minutes):
+
+1. List all evolutions of pokemon in their card
+2. Display the name of each evolution as a button.
+3. When the button is clicked, make that pokemon the 
+first order displayed, keeping alphabetical order.
+
+Example:
+
+If "Bellsprout" has evolution pokemon of "Weepinbell"
+and "Victreebel", if "Weepinbell" is clicked, "Weepinbell"
+will become the first pokemon displayed
+in sorted order.
+
