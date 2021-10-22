@@ -35,6 +35,15 @@ function App() {
     setPokemons(newPokemons);
   };
 
+  const findEvolution = (pokemonName) => {
+    var index = pokemons
+      .map((evo) => {
+        return evo.name;
+      })
+      .indexOf(pokemonName);
+    reSort(index);
+  };
+
   const sort = (pokemons) => {
     return pokemons.sort((a, b) => {
       return collator.compare(a.name, b.name);
@@ -51,6 +60,7 @@ function App() {
             index={index}
             key={index}
             pokemon={pokemon}
+            findEvolution={findEvolution}
           />
         );
       });

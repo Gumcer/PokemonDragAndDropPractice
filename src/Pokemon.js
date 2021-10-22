@@ -1,12 +1,20 @@
 import React from "react";
 
-const Pokemon = ({ reSort, index, pokemon }) => {
+const Pokemon = ({ reSort, index, pokemon, findEvolution }) => {
   console.log("pokemon", pokemon);
 
   const evolutioncheck = () => {
     if (pokemon.evolutions) {
       return pokemon.evolutions.map((poke) => {
-        return <button>{poke.name}</button>;
+        return (
+          <button
+            onClick={() => {
+              findEvolution(poke.name);
+            }}
+          >
+            {poke.name}
+          </button>
+        );
       });
     } else {
       return null;
