@@ -5,24 +5,29 @@ const Pokemon = ({ reSort, index, pokemon, findEvolution }) => {
 
   const evolutioncheck = () => {
     if (pokemon.evolutions) {
-      return pokemon.evolutions.map((poke) => {
-        return (
-          <button
-            onClick={() => {
-              findEvolution(poke.name);
-            }}
-          >
-            {poke.name}
-          </button>
-        );
-      });
+      return (
+        <div className="evolution-container">
+          <div>Evolution(s)</div>
+          {pokemon.evolutions.map((poke) => {
+            return (
+              <button
+                onClick={() => {
+                  findEvolution(poke.name);
+                }}
+              >
+                {poke.name}
+              </button>
+            );
+          })}
+        </div>
+      );
     } else {
       return null;
     }
   };
 
   return (
-    <div>
+    <div className="pokemon">
       <button
         onClick={() => {
           reSort(index);
@@ -32,7 +37,7 @@ const Pokemon = ({ reSort, index, pokemon, findEvolution }) => {
       </button>
       <p>{pokemon.name}</p>
       <div>{pokemon.number}</div>
-      <img src={pokemon.image} alt={pokemon.name} />
+      <img className="pokemon-image" src={pokemon.image} alt={pokemon.name} />
       {evolutioncheck()}
     </div>
   );

@@ -69,8 +69,7 @@ function App() {
       return "Loading";
     }
   };
-
-  return <div>{renderPokemon()}</div>;
+  return <div className='pokemon-list-container'>{renderPokemon()}</div>;
 }
 
 export default App;
