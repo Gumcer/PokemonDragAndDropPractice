@@ -56,7 +56,6 @@ function App() {
 
   const renderPokemon = () => {
     if (pokemons.length > 0) {
-      console.log("render ", pokemons);
       return pokemons.map((pokemon, index) => {
         return (
           <Pokemon

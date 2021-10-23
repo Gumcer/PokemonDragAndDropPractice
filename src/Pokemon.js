@@ -1,17 +1,16 @@
 import React from "react";
 
 const Pokemon = ({ reSort, index, pokemon, findEvolution }) => {
-  console.log("pokemon", pokemon);
-
   const evolutioncheck = () => {
     if (pokemon.evolutions) {
       return (
         <div>
           <div className="evolution-label">Evolution(s)</div>
           <div className="evolution">
-            {pokemon.evolutions.map((poke) => {
+            {pokemon.evolutions.map((poke, index) => {
               return (
                 <button
+                  key={index}
                   onClick={() => {
                     findEvolution(poke.name);
                   }}
