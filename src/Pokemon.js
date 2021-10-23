@@ -6,38 +6,60 @@ const Pokemon = ({ reSort, index, pokemon, findEvolution }) => {
   const evolutioncheck = () => {
     if (pokemon.evolutions) {
       return (
-        <div className="evolution-container">
-          <div>Evolution(s)</div>
-          {pokemon.evolutions.map((poke) => {
-            return (
-              <button
-                onClick={() => {
-                  findEvolution(poke.name);
-                }}
-              >
-                {poke.name}
-              </button>
-            );
-          })}
+        <div>
+          <div className="evolution-label">Evolution(s)</div>
+          <div className="evolution">
+            {pokemon.evolutions.map((poke) => {
+              return (
+                <button
+                  onClick={() => {
+                    findEvolution(poke.name);
+                  }}
+                >
+                  {poke.name}
+                </button>
+              );
+            })}
+          </div>
         </div>
       );
     } else {
-      return null;
+      return <div className="empty"></div>;
     }
   };
 
   return (
-    <div className="pokemon">
-      <button
-        onClick={() => {
-          reSort(index);
-        }}
-      >
-        {pokemon.name}
-      </button>
-      <p>{pokemon.name}</p>
-      <div>{pokemon.number}</div>
-      <img className="pokemon-image" src={pokemon.image} alt={pokemon.name} />
+    <div className="pokemon-container">
+      <div className="name-number-image">
+        <div className="image-container">
+          <img
+            className="pokemon-image"
+            src={pokemon.image}
+            alt={pokemon.name}
+          />
+        </div>
+        <div className="name-number">
+          <div className="label-button">
+            <div>
+              <u>Name</u>
+            </div>
+            <button
+              className="pokemon-name"
+              onClick={() => {
+                reSort(index);
+              }}
+            >
+              {pokemon.name}
+            </button>
+          </div>
+          <div className="label-button">
+            <div>
+              <u>Number</u>
+            </div>
+            <div>{pokemon.number}</div>
+          </div>
+        </div>
+      </div>
       {evolutioncheck()}
     </div>
   );

@@ -1,0 +1,52 @@
+.pokemon-container {
+  margin: 5px;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 500px;
+  height: 200px;
+}
+
+.name-number-image {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.name-number {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px dashed black;
+  width: 100px;
+}
+.evolution-label {
+  display: flex;
+  justify-content: center;
+}
+.label-button {
+  height: 35px;
+}
+
+.image-container {
+  width: 260px;
+}
+.pokemon-image {
+  margin: 10px;
+  height: 100px;
+}
+
+.empty {
+  width: 35px;
+}
+.evolutions {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}

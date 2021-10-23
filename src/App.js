@@ -32,6 +32,10 @@ function App() {
     for (var i = 0; i < index; i++) {
       newPokemons.push(newPokemons.shift());
     }
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
     setPokemons(newPokemons);
   };
 
@@ -69,7 +73,7 @@ function App() {
       return "Loading";
     }
   };
-  return <div className='pokemon-list-container'>{renderPokemon()}</div>;
+  return <div className="pokemon-list-container">{renderPokemon()}</div>;
 }
 
 export default App;
