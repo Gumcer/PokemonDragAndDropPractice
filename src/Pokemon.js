@@ -1,6 +1,6 @@
 import React from "react";
 
-const Pokemon = ({ reSort, index, pokemon, findEvolution }) => {
+const Pokemon = ({ reSort, index, pokemon, findEvolution, addToTeam }) => {
   const evolutioncheck = () => {
     if (pokemon.evolutions) {
       return (
@@ -28,7 +28,12 @@ const Pokemon = ({ reSort, index, pokemon, findEvolution }) => {
   };
 
   return (
-    <div className="pokemon-container">
+    <div
+      className="pokemon-container"
+      onClick={() => {
+        addToTeam(pokemon);
+      }}
+    >
       <div className="name-number-image">
         <div className="image-container">
           <img

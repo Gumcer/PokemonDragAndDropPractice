@@ -5,7 +5,7 @@ import Pokemon from "./Pokemon.js";
 
 const QUERY = gql`
   query {
-    pokemons(first: 100) {
+    pokemons(first: 151) {
       id
       name
       number
@@ -20,6 +20,7 @@ const QUERY = gql`
 function App() {
   const { data, loading } = useQuery(QUERY);
   const [pokemons, setPokemons] = useState([]);
+  const [team, setTeam] = useState([]);
   if (loading) return <div>...</div>;
 
   const collator = new Intl.Collator("en", {
@@ -54,6 +55,10 @@ function App() {
     });
   };
 
+  const addToTeam = (pokemon) => {
+    setTeam((prevTeam) => [...prevTeam, pokemon]);
+  };
+
   const renderPokemon = () => {
     if (pokemons.length > 0) {
       return pokemons.map((pokemon, index) => {
@@ -64,6 +69,7 @@ function App() {
             key={index}
             pokemon={pokemon}
             findEvolution={findEvolution}
+            addToTeam={addToTeam}
           />
         );
       });
@@ -72,7 +78,35 @@ function App() {
       return "Loading";
     }
   };
-  return <div className="pokemon-list-container">{renderPokemon()}</div>;
+
+  const renderTeam = () => {
+    if (team.length > 0) {
+      return team.map((pokemon, index) => {
+        return (
+          <Pokemon
+            reSort={reSort}
+            index={index}
+            key={index}
+            pokemon={pokemon}
+            findEvolution={findEvolution}
+            addToTeam={addToTeam}
+          />
+        );
+      });
+    } else {
+      return null;
+    }
+  };
+
+  return (
+    <div className="main-container">
+      <div className="pokemon-list-container">{renderPokemon()}</div>
+      <div className="team-list-container">
+        <div>My Team</div>
+        {renderTeam()}
+      </div>
+    </div>
+  );
 }
 
 export default App;
